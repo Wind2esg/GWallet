@@ -1,0 +1,2 @@
+# GWallet Lisence
+MIT
