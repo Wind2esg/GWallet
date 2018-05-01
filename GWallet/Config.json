@@ -1,0 +1,6 @@
+{
+  "DefaultWalletFileName": "Wallet.json",
+  "Network": "Main",
+  "ConnectionType": "Http",
+  "CanSpendUnconfirmed": "False"
+}
