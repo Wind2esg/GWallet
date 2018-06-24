@@ -4,7 +4,7 @@
 
 ## API
 
-
+| - | :-: | - |
 | Method | Return | Param |		
 | - | :-: | - |
 | GenerateWallet | void | string path |
@@ -12,7 +12,7 @@
 | ShowBalances | void | string path |
 | ShowHistory | void | string path |
 | Receive | void | string path |
-| ShowHistSendory | void | string address, string btc, string path |
+| ShowHistSendory | void | string address<br/>string btc<br/>string path |
 | GetWalletFilePath | string | string path |
 | AssertWalletNotExists | void | string walletFilePath |
 | AssertCorrectNetwork | void | Network network |
