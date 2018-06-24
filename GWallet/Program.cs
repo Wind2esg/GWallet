@@ -470,10 +470,10 @@ namespace GWallet
         }
         public static void AssertCorrectNetwork(Network network)
         {
-            if (network != Config.Network)
+            if (network != Config.network)
             {
                 WriteLine($"The wallet you want to load is on the {network} Bitcoin network.");
-                WriteLine($"But your config file specifies {Config.Network} Bitcoin network.");
+                WriteLine($"But your config file specifies {Config.network} Bitcoin network.");
                 Exit();
             }
         }
@@ -490,36 +490,8 @@ namespace GWallet
             Exit("Incorrect mnemonic format.");
         }
         // Inclusive
-        public static void AssertArgumentsLenght(int length, int min, int max)
-        {
-            if (length < min)
-            {
-                Exit($"Not enough arguments are specified, minimum: {min}");
-            }
-            if (length > max)
-            {
-                Exit($"Too many arguments are specified, maximum: {max}");
-            }
-        }
         #endregion
         #region CommandLineArgumentStuff
-        private static string GetArgumentValue(string[] args, string argName, bool required = true)
-        {
-            string argValue = "";
-            foreach (var arg in args)
-            {
-                if (arg.StartsWith($"{argName}=", StringComparison.OrdinalIgnoreCase))
-                {
-                    argValue = arg.Substring(arg.IndexOf("=") + 1);
-                    break;
-                }
-            }
-            if (required && argValue == "")
-            {
-                Exit($@"'{argName}=' is not specified.");
-            }
-            return argValue;
-        }
         private static string GetWalletFilePath(string path)
         {
             string walletFileName = path;
@@ -570,11 +542,7 @@ namespace GWallet
             } while (response != ConsoleKey.Y && response != ConsoleKey.N);
             return response;
         }
-        public static void DisplayHelp()
-        {
-            WriteLine("Possible commands are:");
-            foreach (var cmd in Commands) WriteLine($"\t{cmd}");
-        }
+
         public static void Exit(string reason = "", ConsoleColor color = ConsoleColor.Red)
         {
             ForegroundColor = color;
