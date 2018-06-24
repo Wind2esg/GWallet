@@ -6,7 +6,7 @@
 
 
 | Method | Return | Param |		
-| - | :-: | -: |
+| - | :-: | - |
 | GenerateWallet | void | string path |
 | RecoverWallet | void | string path |
 | ShowBalances | void | string path |
